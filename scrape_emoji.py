@@ -13,9 +13,10 @@ def text_has_emoji(text):
         d.write(text)
         d.write('\n')
     return emojiLabels
- 
-d = open('/Users/aisirimurulidhar/Downloads/ireland_tweetsCopy.txt', "a")
-with open('/Users/aisirimurulidhar/Downloads/ireland_tweets.txt') as f:
+
+
+d = open('/Users/aisirimurulidhar/Downloads/ireland_tweetsCopy.txt', "a") #change file name here
+with open('/Users/aisirimurulidhar/Downloads/ireland_tweets.txt') as f:   #change file name here
     content = f.readlines()
 content = [x.strip() for x in content]     
     
