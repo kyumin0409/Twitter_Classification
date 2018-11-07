@@ -17,7 +17,7 @@ def retrieve_tweets(tweet_ids,api):
 	divisions = int(no_tweet_ids/100)
 	if divisions*100 < no_tweet_ids:
 		divisions = divisions+1
-	fixed_divisions = 6106
+	fixed_divisions = 6107
 	request_arr = []
 	counter = 0
 	for d in range(fixed_divisions):
@@ -37,7 +37,7 @@ def retrieve_tweets(tweet_ids,api):
 
 #write tweets to output file
 def write_to_file(tweets):
-	tweet_content_file = "app_data/ferguson_tweets.txt"
+	tweet_content_file = "app_data/panamapapers-tweets.txt"
 	with open(tweet_content_file,"a") as f_write:
 		for t in tweets:
 			#take text only from tweet object
@@ -53,7 +53,7 @@ def main():
 
 	api = tweepy.API(auth,wait_on_rate_limit=True,wait_on_rate_limit_notify=True)
 	#output file the contents of tweets should be written to
-	tweet_id_file = "app_data/ferguson_ids.txt"
+	tweet_id_file = "app_data/panamapapers-tweet-ids.txt"
 	tweet_ids =load_tweet_ids(tweet_id_file)
 	retrieve_tweets(tweet_ids,api)
 	print("Tweet retrieval done")
