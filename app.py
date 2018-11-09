@@ -1,13 +1,23 @@
 import tweepy
 
 #load tweet ids from the tweet id file
-def load_tweet_ids(filename):
+def load_tweet_ids(filename, size):
 	tweet_ids =[]
+	if size =="big":
+		line_counter = 0
 	with open(filename) as f_read:
-		for line in f_read:
-			tweet_ids.append(line.strip())
+		if size == "big":
+			for line in f_read:
+				tweet_ids.append(line.strip())
+				line_counter = line_counter + 1
+				if line_counter == 610700:
+					break
+		elif size == "small":
+			for line in f_read:
+				tweet_ids.append(line.strip())
 		f_read.close()
 	return tweet_ids
+
 
 #retrieves tweet content from tweet id using twitter api
 def retrieve_tweets(tweet_ids,api):
@@ -37,7 +47,7 @@ def retrieve_tweets(tweet_ids,api):
 
 #write tweets to output file
 def write_to_file(tweets):
-	tweet_content_file = "app_data/panamapapers-tweets.txt"
+	tweet_content_file = "app_data/trump_tweets.txt"
 	with open(tweet_content_file,"a") as f_write:
 		for t in tweets:
 			#take text only from tweet object
@@ -53,8 +63,8 @@ def main():
 
 	api = tweepy.API(auth,wait_on_rate_limit=True,wait_on_rate_limit_notify=True)
 	#output file the contents of tweets should be written to
-	tweet_id_file = "app_data/panamapapers-tweet-ids.txt"
-	tweet_ids =load_tweet_ids(tweet_id_file)
+	tweet_id_file = "app_data/trump-tweet-ids.txt"
+	tweet_ids =load_tweet_ids(tweet_id_file,"big")
 	retrieve_tweets(tweet_ids,api)
 	print("Tweet retrieval done")
 
