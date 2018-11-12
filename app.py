@@ -56,6 +56,13 @@ def write_to_file(tweets):
 			f_write.write("\n")
 	f_write.close()
 
+def count_tweets(filename):
+	ct = 0
+	with open(filename) as f_read:
+		for line in f_read:
+			ct = ct+1
+	print("number of tweets for "+filename+" :"+ str(ct))
+
 def main():
 
 	auth = tweepy.OAuthHandler("0jmX7pjlOm0IuIk7FB20tEUsN","WnYookGX1FC28ON9G84hIs0qycEoDH6fyTiZMXd6Cde4811ScF")
@@ -64,9 +71,13 @@ def main():
 	api = tweepy.API(auth,wait_on_rate_limit=True,wait_on_rate_limit_notify=True)
 	#output file the contents of tweets should be written to
 	tweet_id_file = "app_data/trump-tweet-ids.txt"
-	tweet_ids =load_tweet_ids(tweet_id_file,"big")
-	retrieve_tweets(tweet_ids,api)
-	print("Tweet retrieval done")
+	#tweet_ids =load_tweet_ids(tweet_id_file,"big")
+	#retrieve_tweets(tweet_ids,api)
+	#print("Tweet retrieval done")
+	count_tweets("app_data/ferguson_tweetsCopy.txt")
+	count_tweets("app_data/panamapapers-tweetsCopy.txt")
+	count_tweets("app_data/trump_tweetsCopy.txt")
+	count_tweets("app_data/ireland_tweetsEmoji.txt")
 
 if __name__ == "__main__":
 	main()
