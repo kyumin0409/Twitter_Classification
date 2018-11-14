@@ -47,14 +47,21 @@ def retrieve_tweets(tweet_ids,api):
 
 #write tweets to output file
 def write_to_file(tweets):
-	tweet_content_file = "app_data/trump_tweets.txt"
-	with open(tweet_content_file,"a") as f_write:
+	tweet_content_file = "app_data/travel_ban_tweets.txt"
+	tweets_users_content_file = "app_data/ireland_tweets_with_users.txt"
+
+	# with open(tweet_content_file,"a") as f_write
+	with open(tweets_users_content_file,"a") as f_users_write:
 		for t in tweets:
 			#take text only from tweet object
 			tweet_text = t.text
-			f_write.write(tweet_text)
-			f_write.write("\n")
-	f_write.close()
+			# f_write.write(tweet_text)
+			# f_write.write("\n")
+			f_users_write.write("user: "+t.user.screen_name +" "+"tweet: "+tweet_text)
+			f_users_write.write("\n")
+
+	#f_write.close()
+	f_users_write.close()
 
 def count_tweets(filename):
 	ct = 0
@@ -70,14 +77,14 @@ def main():
 
 	api = tweepy.API(auth,wait_on_rate_limit=True,wait_on_rate_limit_notify=True)
 	#output file the contents of tweets should be written to
-	tweet_id_file = "app_data/trump-tweet-ids.txt"
-	#tweet_ids =load_tweet_ids(tweet_id_file,"big")
-	#retrieve_tweets(tweet_ids,api)
-	#print("Tweet retrieval done")
-	count_tweets("app_data/ferguson_tweetsCopy.txt")
-	count_tweets("app_data/panamapapers-tweetsCopy.txt")
-	count_tweets("app_data/trump_tweetsCopy.txt")
-	count_tweets("app_data/ireland_tweetsEmoji.txt")
+	tweet_id_file = "app_data/ireland8th.txt"
+	tweet_ids =load_tweet_ids(tweet_id_file,"big")
+	retrieve_tweets(tweet_ids,api)
+	print("Tweet retrieval done")
+	# count_tweets("app_data/ferguson_tweetsCopy.txt")
+	# count_tweets("app_data/panamapapers-tweetsCopy.txt")
+	# count_tweets("app_data/trump_tweetsCopy.txt")
+	# count_tweets("app_data/ireland_tweetsEmoji.txt")
 
 if __name__ == "__main__":
 	main()
