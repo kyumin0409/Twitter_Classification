@@ -78,11 +78,11 @@ def main():
 	api = tweepy.API(auth,wait_on_rate_limit=True,wait_on_rate_limit_notify=True)
 	#output file the contents of tweets should be written to
 	tweet_id_file = "app_data/ireland8th.txt"
-	tweet_ids =load_tweet_ids(tweet_id_file,"big")
-	retrieve_tweets(tweet_ids,api)
-	print("Tweet retrieval done")
-	# count_tweets("app_data/ferguson_tweetsCopy.txt")
-	# count_tweets("app_data/panamapapers-tweetsCopy.txt")
+	# tweet_ids =load_tweet_ids(tweet_id_file,"big")
+	# retrieve_tweets(tweet_ids,api)
+	# print("Tweet retrieval done")
+	count_tweets("app_data/brexit_tweetsCopy.txt")
+	count_tweets("app_data/travel_ban_tweetsCopy.txt")
 	# count_tweets("app_data/trump_tweetsCopy.txt")
 	# count_tweets("app_data/ireland_tweetsEmoji.txt")
 
