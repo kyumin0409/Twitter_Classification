@@ -11,6 +11,7 @@ def load_dict(politicians, broken_keywords, keyword_tweet_dict):
 					if k in lower_tweet:
 						updated_tuple = keyword_tweet_dict[keyword]+(politician+":"+tweet,)
 						keyword_tweet_dict[keyword] = updated_tuple
+						break
 	output_dict = keyword_tweet_dict
 	return output_dict
 
