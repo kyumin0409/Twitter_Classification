@@ -42,7 +42,7 @@ def main():
 	"Marijuana", "Net Neutrality", "Gay Marriage", 
 	"Affirmative Action", "DACA immigration" , 
 	"Assisted Suicide", "Capital punishment", 
-	"labor unions", "vaccines, concealed weapons", 
+	"labor unions", "vaccines", "concealed weapons", 
 	"self-driving cars","Artificial intelligence", 
 	"Donald Trump","Planned Parenthood", "Social Security", "NRA", 
 	"Fracking", "Nuclear Energy", "NSA Surveillance", "Military Spending", 
@@ -50,7 +50,7 @@ def main():
 	"Trans Pacific Partnership", "China Tariffs", "Labor Unions", 
 	"Universal Basic Income", "Paid Sick Leave", "Safe Haven", "Medicaid", 
 	"Edward Snowden", "Whistleblower Protection", "Armed Teachers", "Gun Control",
-	"In-State Tuition", "Immigration Ban", "Border Wall, First Amendment", 
+	"In-State Tuition", "Immigration Ban", "Border Wall", "First Amendment", 
 	"Confederate Flag", "Death Penalty", "Religious Freedom Act"]
 
 	politicians = ["SenFeinstein","SenKamalaHarris","SenSanders" ,"HillaryClinton",
