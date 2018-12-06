@@ -25,7 +25,7 @@ def get_all_timelines(politicians):
 		write_timeline_to_file(politician, user_timeline)
 
 def write_timeline_to_file(politician, timeline_tweets):
-	filename = "app_data/user_timelines/"+politician+".txt"
+	filename = "app_data/more_politicians/"+politician+".txt"
 	f = open(filename,"w")
 	for tweet in timeline_tweets:
 		tweet_text = tweet.full_text
@@ -37,7 +37,7 @@ def write_timeline_to_file(politician, timeline_tweets):
 
 def create_files(politicians):
 	for politician in politicians:
-		filename = "app_data/user_timelines/"+politician+".txt"
+		filename = "app_data/more_politicians/"+politician+".txt"
 		file = open(filename,"w+")
 		file.close()
 
@@ -46,9 +46,15 @@ def main():
 	"BarackObama","timkaine","JoeBiden","SenWarren","SenBooker","SenGillibrand","SenTedCruz",
 	"SenatorHeitkamp","BobbyJindal","VP","GrahamBlog" ,"JeffFlake","senatemajldr","JohnCornyn",
 	"MikeCrapo","marcorubio"]
-	create_files(politicians)
+	democrats_appended = ["SenGillibrand","SenSchumer","SenMarkey","Stabenow", "SenGaryPeters",
+	"PattyMurray","SenatorCantwell","RonWyden","SenJeffMerkley","SenBrianSchatz","SenBillNelson"]
 
-	get_all_timelines(politicians)
+	republicans_appended = ["JerryMoran","Lisamurkowski","SenDanSullivan","SenRonJohnson",
+	"Senrobportman","JohnBoozman","SenJohnThune","SenBobCorker","OrrinHatch","RoyBlunt"]
+	
+	create_files(republicans_appended)
+
+	get_all_timelines(republicans_appended)
 	
 if __name__ == "__main__":
 	main()
