@@ -25,25 +25,27 @@ def get_all_timelines(politicians):
 		write_timeline_to_file(politician, user_timeline)
 
 def write_timeline_to_file(politician, timeline_tweets):
-	filename = "app_data/more_politicians/"+politician+".txt"
+	filename = "app_data/more_politicians2/"+politician+".txt"
 	f = open(filename,"w")
 	for tweet in timeline_tweets:
 		tweet_text = tweet.full_text
 		if "RT" not in tweet_text:
 			f.write(tweet.full_text)
 			f.write('\n')
+			f.write("*****************************")
+			f.write('\n')
 	f.close()
 
 
 def create_files(politicians):
 	for politician in politicians:
-		filename = "app_data/more_politicians/"+politician+".txt"
+		filename = "app_data/more_politicians2/"+politician+".txt"
 		file = open(filename,"w+")
 		file.close()
 
 def main():
 	politicians = ["SenFeinstein","SenKamalaHarris","SenSanders" ,"HillaryClinton",
-	"BarackObama","timkaine","JoeBiden","SenWarren","SenBooker","SenGillibrand","SenTedCruz",
+	"BarackObama","timkaine","JoeBiden","SenWarren","SenBooker","SenTedCruz",
 	"SenatorHeitkamp","BobbyJindal","VP","GrahamBlog" ,"JeffFlake","senatemajldr","JohnCornyn",
 	"MikeCrapo","marcorubio"]
 	democrats_appended = ["SenGillibrand","SenSchumer","SenMarkey","Stabenow", "SenGaryPeters",
@@ -52,9 +54,9 @@ def main():
 	republicans_appended = ["JerryMoran","Lisamurkowski","SenDanSullivan","SenRonJohnson",
 	"Senrobportman","JohnBoozman","SenJohnThune","SenBobCorker","OrrinHatch","RoyBlunt"]
 	
-	create_files(republicans_appended)
+	create_files(politicians)
 
-	get_all_timelines(republicans_appended)
+	get_all_timelines(politicians)
 	
 if __name__ == "__main__":
 	main()
